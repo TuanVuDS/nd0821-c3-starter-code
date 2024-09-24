@@ -21,4 +21,4 @@ data = {
 response = requests.post('https://nd0821-c3-1cb83d51f9a3.herokuapp.com/', data=json.dumps(data))
 
 print(response.status_code)
-print(response.json())
+print(response)
