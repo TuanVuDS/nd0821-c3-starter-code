@@ -61,4 +61,4 @@ async def predict(sample: Sample):
         training=False, encoder=encoder, lb=lb)
 
     pred = inference(model, X)[0]
-    return {'predict':'<=50K'} if pred == 0 else {'predict':'>50K'}
+    return {'predict':'<= 50K'} if pred == 0 else {'predict':'> 50K'}
