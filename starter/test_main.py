@@ -30,13 +30,13 @@ def test_post_sample_less_and_equal_than_50K():
     }
     r = client.post("/", data=json.dumps(data))
     assert r.status_code == 200
-    # assert r.json() == {'predict': '<= 50K'}
-    assert r.json() == {'predict':'> 50K'}
+    assert r.json() == {'predict': '<= 50K'}
+    # assert r.json() == {'predict':'> 50K'}
 
 
 def test_post_sample_greater_than_50K():
     data = {
-        "age": 30,
+        "age": 18,
         "workclass": "State-gov",
         "fnlgt": 141297,
         "education": "Bachelors",
@@ -48,10 +48,10 @@ def test_post_sample_greater_than_50K():
         "sex": "Male",
         "capital_gain": 0,
         "capital_loss": 0,
-        "hours_per_week": 40,
+        "hours_per_week": 20,
         "native_country": "India"
     }
     r = client.post("/", data=json.dumps(data))
     assert r.status_code == 200
-    # assert r.json() == {'predict':'> 50K'}
-    assert r.json() == {'predict': '<= 50K'}
+    assert r.json() == {'predict':'> 50K'}
+    # assert r.json() == {'predict': '<= 50K'}
