@@ -30,6 +30,7 @@ def test_post_sample_less_and_equal_than_50K():
     }
     r = client.post("/", data=json.dumps(data))
     assert r.status_code == 200
+    assert r.json() == "<=50K"
 
 
 def test_post_sample_greater_than_50K():
@@ -51,3 +52,4 @@ def test_post_sample_greater_than_50K():
     }
     r = client.post("/", data=json.dumps(data))
     assert r.status_code == 200
+    assert r.json() == ">50K"
