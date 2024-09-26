@@ -18,7 +18,7 @@ data = {
     "native_country": "India"
 }
 
-response = requests.post('http://0.0.0.0:5000/', data=json.dumps(data))
+response = requests.post('https://check-test-0c8ba6fd4b58.herokuapp.com/', data=json.dumps(data))
 
 print(response.status_code)
 print(response.json())
