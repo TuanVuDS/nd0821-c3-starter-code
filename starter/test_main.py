@@ -31,8 +31,6 @@ def test_post_sample_less_and_equal_than_50K():
     r = client.post("/", data=json.dumps(data))
     assert r.status_code == 200
     assert r.json() == {'predict': '<= 50K'}
-    # assert r.json() == {'predict':'> 50K'}
-
 
 def test_post_sample_greater_than_50K():
     data = {
@@ -53,5 +51,5 @@ def test_post_sample_greater_than_50K():
     }
     r = client.post("/", data=json.dumps(data))
     assert r.status_code == 200
-    assert r.json() == {'predict':'> 50K'}
-    # assert r.json() == {'predict': '<= 50K'}
+    # assert r.json() == {'predict':'> 50K'}
+    assert r.json() == {'predict': '<= 50K'}
