@@ -34,21 +34,21 @@ def test_post_sample_less_and_equal_than_50K():
 
 def test_post_sample_greater_than_50K():
     data = {
-        "age": 18,
-        "workclass": "State-gov",
+        "age": 45,
+        "workclass": "Private",
         "fnlgt": 141297,
-        "education": "Bachelors",
-        "education_num": 13,
+        "education": "Doctorate",
+        "education_num": 16,
         "marital_status": "Married-civ-spouse",
-        "occupation": "Prof-specialty",
+        "occupation": "Exec-managerial",
         "relationship": "Husband",
-        "race": "Asian-Pac-Islander",
+        "race": "White",
         "sex": "Male",
-        "capital_gain": 0,
+        "capital_gain": 15000,
         "capital_loss": 0,
-        "hours_per_week": 20,
-        "native_country": "India"
+        "hours_per_week": 60, 
+        "native_country": "United-States"
     }
     r = client.post("/", data=json.dumps(data))
     assert r.status_code == 200
-    assert r.json() == {'predict':'> 50K'}
+    assert r.json() == {'predict': '> 50K'}
