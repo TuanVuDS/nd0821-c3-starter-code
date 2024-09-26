@@ -73,3 +73,25 @@ def test_post_sample_less_and_equal_than_50K_part_time():
     r = client.post("/", data=json.dumps(data))
     assert r.status_code == 200
     assert r.json() == {'predict': '<= 50K'}
+
+def test_post_sample_greater_than_50K_manager():
+    data = {
+        "age": 50,
+        "workclass": "Private",
+        "fnlgt": 300000,
+        "education": "Masters",
+        "education_num": 14,
+        "marital_status": "Married-civ-spouse",
+        "occupation": "Exec-managerial",
+        "relationship": "Husband",
+        "race": "White",
+        "sex": "Male",
+        "capital_gain": 15000,  # Tăng lợi tức
+        "capital_loss": 0,
+        "hours_per_week": 50,  # Số giờ làm việc cao
+        "native_country": "United-States"
+    }
+    r = client.post("/", data=json.dumps(data))
+    assert r.status_code == 200
+    assert r.json() == {'predict': '> 50K'}
+
